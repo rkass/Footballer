@@ -1,0 +1,13 @@
+AUTOENCODER: a list of networks. the most inner network 
+(smallest in dimension) is at the front of the list, and
+the outter most network is the last member.
+
+pinpoint the turning point at 300 [in progress]
+
+make an api for accessing the reduced form of an input given 
+the input vector and the network[in progress]
+
+write an activate-autoencoder function, which takes an autoencoder (list
+of networks) and an input vector, and returns the transformed input
+
+perform pca and compare results[ambitious]

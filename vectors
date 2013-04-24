@@ -1,0 +1,26 @@
+For every game after week three, want to generate a vector with features:
+  -Last Game:
+    -Away Team:
+        0) points
+        1) first downs
+        2) third down percentage
+        3) rushing attempts
+        4) rushing yards
+        5) passing attempts
+        6) passing yards
+        7) interceptions
+        8) fumbles
+        9) sack yards
+        10) penalty yards
+        11) time of posession
+        12 --> 23) 0 --> 11 against
+        24) away = 0; home = 1
+        25 --> 74) 0 --> 24 repeated twice for the two other games past
+        75 --> 149) 0 --> 74 for opponent 1
+        150 --> 224) 0 --> 74 for opponent 2
+        225 --> 299) 0 --> 74 for opponent 3
+    -Home Team:
+        300 --> 599) 0 --> 299 for home team
+  
+  
+      
