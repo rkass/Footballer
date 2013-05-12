@@ -1,5 +1,5 @@
 import buildVector as bv
-from sklearn import svm
+from sklearn import svm, linear_model
 import cPickle
 
 vects = cPickle.load(open('serialized_vectors.p', 'rb'))
@@ -13,7 +13,7 @@ def flatten(lst):
 #Input is the number of different validation and training sets
 #Divides the vects into n slices and trains on all slices except 1 each time
 #Outputs the proportion correct
-def crossValidate(vects, n, Cparam = 1.0, Kparam = 'rbf', Gparam = 0.0):
+def crossValidate(vects, n, classifier = 'linear',Cparam = 1.0, Kparam = 'rbf', Gparam = 0.0):
   trainingSets = []
   validationSets = []
   cks = chunks(vects, len(vects)/n)
@@ -45,7 +45,10 @@ def crossValidate(vects, n, Cparam = 1.0, Kparam = 'rbf', Gparam = 0.0):
     for element, classification in validationSet:
       vData.append(element)
       vClass.append(classification)
-    clf = svm.SVC(C = Cparam, gamma = Gparam, kernel = Kparam)
+    if classifier == 'svm':
+      clf = svm.SVC(C = Cparam, gamma = Gparam, kernel = Kparam)
+    elif classifier == 'linear':
+      clf = linear_model.SGDClassifier()    
     clf.fit(tsData, tsClass)
     count2 = 0
     while count2 < len(vData):

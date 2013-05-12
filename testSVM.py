@@ -1,8 +1,9 @@
+#deprecated. refer to svmcrossvalidation
 import buildVector as bv
 from sklearn import svm
 import cPickle
 
-with open('newfilen', 'rb') as fp:
+with open('serialized_vectors.p', 'rb') as fp:
   vects = cPickle.load(fp)
 X = []
 y = []
